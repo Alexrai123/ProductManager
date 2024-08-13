@@ -13,4 +13,10 @@ public class ProductDTO {
         this.description = product.getDescription();
         this.price = product.getPrice();
     }
+
+    public ProductDTO(String name, String description, Double price){
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 }

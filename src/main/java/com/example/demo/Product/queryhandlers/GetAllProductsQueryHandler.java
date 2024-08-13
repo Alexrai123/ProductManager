@@ -18,7 +18,7 @@ public class GetAllProductsQueryHandler implements Query<Void, List<ProductDTO>>
 
     @Override
     public ResponseEntity<List<ProductDTO>> execute(Void input) {
-        List<ProductDTO> productDTOS = productRepository.findAll().stream().map(ProductDTO::new).toList();
+        List<ProductDTO> productDTOS = productRepository.getAllProductsDTOs();
         return ResponseEntity.ok(productDTOS);
     }
 }
