@@ -55,6 +55,11 @@ public class ProductController {
         return getProductQueryHandler.execute(id);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam(value="description") String description){
+        return ResponseEntity.ok(productRepository.findByDescriptionContaining(description));
+    }
+
     @PostMapping
     public ResponseEntity createProduct(@RequestBody Product product){
         return createProductCommandHandler.execute(product);

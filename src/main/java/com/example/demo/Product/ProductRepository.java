@@ -19,4 +19,9 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Query("SELECT new com.example.demo.Product.Model.ProductDTO(p.name, p.description, p.price) FROM Product p")
     List<ProductDTO> getAllProductsDTOs();
+
+    @Query("SELECT p FROM Product p WHERE p.description  LIKE %:description%")
+    List<Product> customQueryMethod(@Param(value="description") String description);
+
+    List<Product> findByDescriptionContaining(String keyword);
 }
